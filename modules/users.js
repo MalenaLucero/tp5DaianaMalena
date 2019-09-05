@@ -7,7 +7,7 @@ const users = [
     {name: 'Morisuke Yaku', email: 'myaku@nekoma.com', adress: 'Libero 3456', phone:  18081652},
     {name: 'Touru Oikawa', email: 'toikawa@aobajosai.com', adress: 'Captain 6789', phone: 20181843},
     {name: 'Hajime Iwaizumi', email: 'hiwaizumi@aobajosai.com', adress: 'Spiker 6778', phone: 10181793},
-    {name: 'Koutarou Bokuto', email: 'kbokuto@fukurodani.com', adress: 'Spiker 0987', phone: 20181853},
+    {name: 'Koutarou Bokuto', email: 'kbokuto@fukurodani.com', adress: 'Wing 0987', phone: 20181853},
     {name: 'Keiji Akaashi', email: 'kakaashi@fukurodani.com', adress: 'Setter 9876', phone: 50171823},
     {name: 'Yuuji Terushima', email: 'yterushima@jozenji.com', adress: 'Spiker 7654', phone: 17181772},
 ]
