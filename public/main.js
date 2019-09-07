@@ -21,3 +21,33 @@ const createTd = (text) =>{
     td.innerText = text
     return td
 }
+
+const sendInfo = () =>{
+    let name = document.getElementById('name').value
+    let email = document.getElementById('email').value
+    let address = document.getElementById('address').value
+    let phone = document.getElementById('phone').value
+    let employee = {
+        name: `${name}`,
+        email: `${email}`,
+        address: `${address}`,
+        phone: phone
+    }
+    //no anda esta promesa
+    /*fetch('/api/employees', {
+        method: 'POST',
+        body: JSON.stringify(employee),
+        headers: {'Content-Type': 'application/json'}
+    })
+        .then(res=> res.json())
+        .then(res=>console.log(res))*/
+}
+
+const generalInputValidation = (input) =>{
+    let isValid = false
+    switch(input){
+        case '':
+            isValid = false
+            break
+    }
+}
