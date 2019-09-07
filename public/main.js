@@ -1,5 +1,5 @@
 const initialize = () =>{
-    fetch('/api/users')
+    fetch('/api/employees')
         .then(res => res.json())
         .then(res => fillTable(res.employees))
 }
