@@ -8,6 +8,7 @@ const fillTable = (employees) =>{
     const table = document.getElementById('employeeTable')
     employees.forEach(e=>{
         const tr = document.createElement('tr')
+        tr.appendChild(createTd(''))
         tr.appendChild(createTd(e.name))
         tr.appendChild(createTd(e.email))
         tr.appendChild(createTd(e.address))
