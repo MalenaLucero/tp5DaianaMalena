@@ -7,37 +7,53 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <script src="main.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="C:\Users\daian\Desktop\nuevotp\style.css">
+    <link rel="icon" href="C:\Users\daian\Desktop\nuevotp\favicon.ico" type="image/x-icon">
+    <title>Manage employees</title>
 </head>
+
 <body onload="initialize()">
     <header>
         <h1>Manage employees</h1>
         <a href="#" class="addBoton"><i class="material-icons">&#xE147;</i>Add employee</a>
-        <!-- <div class="hide">
+
+  
+
+         <!-- <div class="hide">
+            <div id="miModal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-header flex">
             <h3>Add employee</h3>
             <form>
                 <label for="name">Name</label>
                 <input name="name" id="name">
                 <label for="email">Email</label>
                 <input name="email" id="email">
-                <label for="address">Address</label>
-                <textarea name="address" id="address"></textarea>
+                <label for="adress">Adress</label>
+                <textarea name="adress" id="adress"></textarea>
                 <label for="phone">Phone</label>
                 <input name="phone" id="phone">
             </form>
             <div>
                 <a href="#">Cancel</a>
-                <a href="#" onclick="sendInfo()">Accept</a>
-            </div>
+                <a href="#">Accept</a>
+            </div> 
         </div>
-    </header>
+         <span class="close" id="close">&times;</span> 
+               </div>  
+               </div>
+        </div>
+    </div>
+
+    </header> -->
     <body>
-        <input id="search">
-        <a href="#" onclick="searchEmployee()">Search</a>
+        <div class="tablebody">
+        <input class="filter" placeholder="Filter...">
         <table>
-            <thead>
+            <thead> 
                 <tr>
-                    <th></th>
+                 
                     <th>Name</th>
                     <th>Email</th>
                     <th>Adress</th>
@@ -46,8 +62,20 @@
                 </tr>
             </thead>
             <tbody id="employeeTable">
+                <tr>
+                    <td>Kurou Tetrsurou</td>
+                    <td>ikemen@nekoma.com</td>
+                    <td>Tokio street 1234</td>
+                    <td>1555554444</td>
+                    <td>
+                     <a href="#" class="edit"> <i class="material-icons" title="Edit">&#xE254;</i> </a>
+                     <a href="#" class="delete"> <i class="material-icons" title="Delete">&#xE872;</i> </a>
+                    </td>
+                </tr>
             </tbody>
         </table>
+        </div>
     </body>
 </body>
+
 </html>

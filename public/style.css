@@ -1,62 +1,72 @@
 body{
-    background-color: grey;
+    background-color: #808080;
     font-family: 'Varela Round', sans-serif;
 }
 
+/* BOTON EMPLOYED */
+   .addBoton{
+    color: #ffffff;
+  position: fixed;
+    z-index: 1;
+    top: 134px;
+    left: 1025px;    
+}   
 
+.addBoton .material-icons{
+  position: fixed;
+    z-index: 1;
+    top: 130px;
+    left: 1000px;
+}
     
-    a{
-        background: #0e6b80; 
-        color: #ffffff;
-    }
-    
-    h1{
-        background: #06313b; 
-        color: #ffffff;
-        position: fixed;
-        z-index: 1;
-        overflow: auto;
-        top: 90px;
-        left: 135px;
-        width: 80%;
-        height: 8%;
-        padding: 10px 0px 0px 40px;
-    }
-    
-    .addBoton{
-        background: #0e6b80; 
-        color: #ffffff;
-        position: fixed;
-        z-index: 1;
-        overflow: auto;
-        top: 120px;
-        left: 1010px;
-        width: 10%;
-        height: 5%;
-        padding: 15px 0px 0px 20px;
-        border-radius: 30px;
-    }
-    
-    .material-icons{
-        position: fixed;
-        overflow: auto;
-        top: 131px;
-        left: 1140px;
-    }
-    
-    table{
-        background: #cac9c9; 
-        position: fixed;
-        z-index: 1;
-        overflow: auto;
-        top: 170px;
-        left: 135px;
-        width: 83%;
-        height: 5%;
-        padding: 15px 0px 0px 20px;
-    
-    }
-    
-    /* thead{ */
-      
-    
+/* BARRA EMPLOYED */
+h1{
+  background: #0a4957; 
+  color: #ffffff;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  top: 90px;
+  left: 135px;
+  width: 80%;
+  height: 8%;
+  padding: 10px 0px 0px 40px;
+}
+
+/* TABLA BLANCA */
+.tablebody{
+   background: #ffffff;
+  position: relative;
+  margin-top: 100px;
+  margin-left: 128px;
+  margin-right: 90px;
+} 
+
+/* BUSCADOR FILTER */
+.filter{
+ /* border:none; */
+  margin: 80px 70px;
+  border-radius: 5px;
+  opacity: 1; 
+  font-size: 13px;
+}
+
+/* TABLA TITULOS */
+table tr{
+  display: flex;
+  justify-content: space-between;
+  margin: -20px 20px 50px 220px;
+  font-size: 18px;
+}
+
+/* TABLA DATOS */
+table td{
+  color: #0a4957;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8px 20px 20px 10px;
+  font-size: 15px;
+/* ARREGLAR ESTO */
+}
+
