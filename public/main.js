@@ -22,3 +22,40 @@ const createTd = (text) =>{
     td.innerText = text
     return td
 }
+
+const sendInfo = () =>{
+    let name = document.getElementById('name').value
+    let email = document.getElementById('email').value
+    let address = document.getElementById('address').value
+    let phone = document.getElementById('phone').value
+    let employee = {
+        name: name,
+        email: email,
+        address: address,
+        phone: phone
+    }
+    console.log(employee)
+    fetch('/api/employees', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(employee)
+    })
+        .then(res=>res.json())
+        .then(res=>console.log(res))
+}
+
+const generalInputValidation = (input) =>{
+    let isValid = false
+    switch(input){
+        case '':
+            isValid = false
+            break
+    }
+}
+
+const searchEmployee = () =>{
+    let input = document.getElementById('search').value
+    fetch(`/api/employees/${input}`)
+        .then(res => res.json())
+        .then(res=>console.log(res))
+}
