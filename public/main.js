@@ -29,11 +29,19 @@ const sendInfo = () =>{
     let address = document.getElementById('address').value
     let phone = document.getElementById('phone').value
     let employee = {
-        name: `${name}`,
-        email: `${email}`,
-        address: `${address}`,
+        name: name,
+        email: email,
+        address: address,
         phone: phone
     }
+    console.log(employee)
+    fetch('/api/employees', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(employee)
+    })
+        .then(res=>res.json())
+        .then(res=>console.log(res))
 }
 
 const generalInputValidation = (input) =>{
