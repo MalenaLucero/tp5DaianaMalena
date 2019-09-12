@@ -34,14 +34,6 @@ const sendInfo = () =>{
         address: `${address}`,
         phone: phone
     }
-    //no anda esta promesa
-    /*fetch('/api/employees', {
-        method: 'POST',
-        body: JSON.stringify(employee),
-        headers: {'Content-Type': 'application/json'}
-    })
-        .then(res=> res.json())
-        .then(res=>console.log(res))*/
 }
 
 const generalInputValidation = (input) =>{
@@ -51,4 +43,11 @@ const generalInputValidation = (input) =>{
             isValid = false
             break
     }
+}
+
+const searchEmployee = () =>{
+    let input = document.getElementById('search').value
+    fetch(`/api/employees/${input}`)
+        .then(res => res.json())
+        .then(res=>console.log(res))
 }
