@@ -13,6 +13,10 @@ const fillTable = (employees) =>{
         tr.appendChild(createTd(e.email))
         tr.appendChild(createTd(e.address))
         tr.appendChild(createTd(e.phone))
+        const editAndDelete = document.createElement('td')
+        editAndDelete.appendChild(createBtn(e.id, 'edit', `<i class="material-icons" title="Edit">&#xE254;</i>`))
+        editAndDelete.appendChild(createBtn(e.id, 'delete', `<i class="material-icons" title="Delete">&#xE872;</i>`))
+        tr.appendChild(editAndDelete)
         table.appendChild(tr)
     })
 }
@@ -21,6 +25,15 @@ const createTd = (text) =>{
     const td = document.createElement('td')
     td.innerText = text
     return td
+}
+
+const createBtn = (id, addClass, icon) =>{
+    const anchor = document.createElement('a')
+    anchor.href = "#"
+    anchor.classList.add(addClass)
+    anchor.innerHTML = icon
+    anchor.onclick = () => {console.log(addClass, id)}
+    return anchor
 }
 
 const sendInfo = () =>{
