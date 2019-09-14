@@ -10,7 +10,7 @@ const employees = [
 
 const getEmployee = (req, res, next) =>{
     res.json({employees})
-    next
+    next()
 }
 
 const postEmployee = (req, res, next) =>{
