@@ -10,20 +10,12 @@ router.get('/', (req, res)=>{
 })
 
 //api routes
-router.get('/api/employees', employees)
+router.get('/api/employees', employees.getEmployee)
 
 router.get('/api/employees/:id', (req, res)=>{
     res.send(req.params.id)
 })
 
-router.post('/api/employees', (req, res)=>{
-    let data = {
-        name: req.body.name,
-        email: req.body.email,
-        address: req.body.address,
-        phone: req.body.phone
-    }
-    res.json(data)
-})
+router.post('/api/employees', employees.postEmployee)
 
 module.exports = router

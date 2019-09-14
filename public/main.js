@@ -47,14 +47,16 @@ const sendInfo = () =>{
         address: address,
         phone: phone
     }
-    console.log(employee)
     fetch('/api/employees', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(employee)
     })
         .then(res=>res.json())
-        .then(res=>console.log(res))
+        .then(res=>{
+            console.log(res)
+            initialize()
+        })
 }
 
 const generalInputValidation = (input) =>{
