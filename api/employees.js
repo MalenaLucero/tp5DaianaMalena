@@ -15,7 +15,7 @@ const getEmployee = (req, res, next) =>{
 
 const postEmployee = (req, res, next) =>{
     let data = req.body
-    data.id = employees.length + 1
+    data.id = `${employees.length + 1}`
     employees.push(data)
     res.status(201).json(`recibido con el id ${data.id}`)
     next()
@@ -26,7 +26,7 @@ const getEmployeeById = (req, res, next) =>{
     if(employee ){
         res.send(employee)
     }else{
-        res.status(404).send('no encontramos al usuario')
+        res.status(404).json('no encontramos al usuario')
     }
     next()
 }

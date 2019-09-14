@@ -21,6 +21,26 @@ const fillTable = (employees) =>{
     })
 }
 
+const cleanTable = () =>{
+    const table = document.getElementById('employeeTable')
+    table.innerHTML = ''
+}
+
+const oneObjectTable = (employee) =>{
+    const table = document.getElementById('employeeTable')
+    const tr = document.createElement('tr')
+    tr.appendChild(createTd(''))
+    tr.appendChild(createTd(employee.name))
+    tr.appendChild(createTd(employee.email))
+    tr.appendChild(createTd(employee.address))
+    tr.appendChild(createTd(employee.phone))
+    const editAndDelete = document.createElement('td')
+    editAndDelete.appendChild(createBtn(employee.id, 'edit', `<i class="material-icons" title="Edit">&#xE254;</i>`))
+    editAndDelete.appendChild(createBtn(employee.id, 'delete', `<i class="material-icons" title="Delete">&#xE872;</i>`))
+    tr.appendChild(editAndDelete)
+    table.appendChild(tr)
+}
+
 const createTd = (text) =>{
     const td = document.createElement('td')
     td.innerText = text
@@ -47,10 +67,6 @@ const sendInfo = () =>{
         address: address,
         phone: phone
     }
-    name.value = ''
-    email.value = ''
-    address.value = ''
-    phone.value = ''
     fetch('/api/employees', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
@@ -77,4 +93,32 @@ const searchEmployee = () =>{
     fetch(`/api/employees/${input}`)
         .then(res => res.json())
         .then(res=>console.log(res))
+}
+
+const filterById = () =>{
+    const filter = document.getElementById('filter').value
+    fetch(`/api/employees/${filter}`)
+        .then(res => res.json())
+        .then(res => {
+            if(typeof res === 'object'){
+                inputCleaner('filter')
+                cleanTable()
+                oneObjectTable(res)
+            }else{
+                filterError(res)
+            }
+        })
+
+}
+
+const inputCleaner = (inputId) =>{
+    const input = document.getElementById(inputId)
+    input.value = ''
+}
+
+const filterError = (text) =>{
+    const container = document.getElementById('formFilter')
+    const content = document.createElement('p')
+    content.innerText = text
+    container.appendChild(content)
 }
