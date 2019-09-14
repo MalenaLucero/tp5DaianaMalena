@@ -11,11 +11,7 @@ router.get('/', (req, res)=>{
 
 //api routes
 router.get('/api/employees', employees.getEmployee)
-
-router.get('/api/employees/:id', (req, res)=>{
-    res.send(req.params.id)
-})
-
+router.get('/api/employees/:id', employees.getEmployeeById)
 router.post('/api/employees', employees.postEmployee)
 
 module.exports = router

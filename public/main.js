@@ -47,6 +47,10 @@ const sendInfo = () =>{
         address: address,
         phone: phone
     }
+    name.value = ''
+    email.value = ''
+    address.value = ''
+    phone.value = ''
     fetch('/api/employees', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
