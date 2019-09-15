@@ -10,20 +10,10 @@ router.get('/', (req, res)=>{
 })
 
 //api routes
-router.get('/api/employees', employees)
-
-router.get('/api/employees/:id', (req, res)=>{
-    res.send(req.params.id)
-})
-
-router.post('/api/employees', (req, res)=>{
-    let data = {
-        name: req.body.name,
-        email: req.body.email,
-        address: req.body.address,
-        phone: req.body.phone
-    }
-    res.json(data)
-})
+router.get('/api/employees', employees.getEmployee)
+router.get('/api/employees/:id', employees.getEmployeeById)
+router.post('/api/employees', employees.postEmployee)
+router.patch('/api/employees', employees.patchEmployee)
+router.delete('/api/employees/:id', employees.deleteEmployee)
 
 module.exports = router

@@ -1,4 +1,5 @@
 const initialize = () =>{
+    cleanTable()
     fetch('/api/employees')
         .then(res => res.json())
         .then(res => fillTable(res.employees))
@@ -13,14 +14,51 @@ const fillTable = (employees) =>{
         tr.appendChild(createTd(e.email))
         tr.appendChild(createTd(e.address))
         tr.appendChild(createTd(e.phone))
+        const editAndDelete = document.createElement('td')
+        editAndDelete.appendChild(createBtn(e.id, 'edit', `<i class="material-icons" title="Edit">&#xE254;</i>`))
+        editAndDelete.appendChild(createBtn(e.id, 'delete', `<i class="material-icons" title="Delete">&#xE872;</i>`))
+        tr.appendChild(editAndDelete)
         table.appendChild(tr)
     })
+}
+
+const cleanTable = () =>{
+    const table = document.getElementById('employeeTable')
+    table.innerHTML = ''
+}
+
+const oneObjectTable = (employee) =>{
+    const table = document.getElementById('employeeTable')
+    const tr = document.createElement('tr')
+    tr.appendChild(createTd(''))
+    tr.appendChild(createTd(employee.name))
+    tr.appendChild(createTd(employee.email))
+    tr.appendChild(createTd(employee.address))
+    tr.appendChild(createTd(employee.phone))
+    const editAndDelete = document.createElement('td')
+    editAndDelete.appendChild(createBtn(employee.id, 'edit', `<i class="material-icons" title="Edit">&#xE254;</i>`))
+    editAndDelete.appendChild(createBtn(employee.id, 'delete', `<i class="material-icons" title="Delete">&#xE872;</i>`))
+    tr.appendChild(editAndDelete)
+    table.appendChild(tr)
 }
 
 const createTd = (text) =>{
     const td = document.createElement('td')
     td.innerText = text
     return td
+}
+
+const createBtn = (id, addClass, icon) =>{
+    const anchor = document.createElement('a')
+    anchor.href = "#"
+    anchor.classList.add(addClass)
+    anchor.innerHTML = icon
+    if(addClass === 'edit'){
+        anchor.onclick = () => openEdit(id)
+    }else if(addClass === 'delete'){
+        anchor.onclick = () => deleteEmployee(id)
+    }
+    return anchor
 }
 
 const sendInfo = () =>{
@@ -34,14 +72,16 @@ const sendInfo = () =>{
         address: address,
         phone: phone
     }
-    console.log(employee)
     fetch('/api/employees', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(employee)
     })
         .then(res=>res.json())
-        .then(res=>console.log(res))
+        .then(res=>{
+            console.log(res)
+            initialize()
+        })
 }
 
 const generalInputValidation = (input) =>{
@@ -60,26 +100,89 @@ const searchEmployee = () =>{
         .then(res=>console.log(res))
 }
 
+const filterById = () =>{
+    const filter = document.getElementById('filter').value
+    fetch(`/api/employees/${filter}`)
+        .then(res => res.json())
+        .then(res => {
+            if(typeof res === 'object'){
+                inputCleaner('filter')
+                cleanTable()
+                oneObjectTable(res)
+            }else{
+                filterError(res)
+            }
+        })
 
-
-// modal
-let modal = document.getElementById('miModal');
-let flex = document.getElementById('flex');
-let abrir = document.getElementById('abrir');
-let cerrar = document.getElementById('close');
-
-abrir.addEventListener('click',function(){
-    modal.style.display = 'block';
-});
-
-cerrar.addEventListener('click',function(){
-    modal.styles.display = 'none';
-});
-
-
-window.addEventListener('click',function(){
-if(e.target == flex){
-    modal.style.display = 'none';
 }
-});
 
+const inputCleaner = (inputId) =>{
+    const input = document.getElementById(inputId)
+    input.value = ''
+}
+
+const filterError = (text) =>{
+    const container = document.getElementById('formFilter')
+    const content = document.createElement('p')
+    content.innerText = text
+    container.appendChild(content)
+}
+
+const openEdit = (index) =>{
+    fetch(`/api/employees/${index}`)
+        .then(res => res.json())
+        .then(res => {
+            fillEdit(res)
+        })
+}
+
+const fillEdit = (employee) =>{
+    fillEditInput('editName', employee.name)
+    fillEditInput('editEmail', employee.email)
+    fillEditInput('editAddress', employee.address)
+    fillEditInput('editPhone', employee.phone)
+    const idContainer = document.getElementById('editId')
+    idContainer.innerText = employee.id
+}
+
+const fillEditInput = (inputId, content) =>{
+    const input = document.getElementById(inputId)
+    input.value = content
+}
+
+const editEmployee = () =>{
+    let name = document.getElementById('editName').value
+    let email = document.getElementById('editEmail').value
+    let address = document.getElementById('editAddress').value
+    let phone = document.getElementById('editPhone').value
+    let id = document.getElementById('editId').innerText
+    let employee = {
+        name: name,
+        email: email,
+        address: address,
+        phone: phone,
+        id: id
+    }
+    fetch('/api/employees', {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(employee)
+    })
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+            initialize()
+        })
+}
+
+const deleteEmployee = (id) =>{
+    fetch(`/api/employees/${id}`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+    })
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+            initialize()
+        })
+}
