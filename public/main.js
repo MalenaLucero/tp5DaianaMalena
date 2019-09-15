@@ -59,3 +59,27 @@ const searchEmployee = () =>{
         .then(res => res.json())
         .then(res=>console.log(res))
 }
+
+
+
+// modal
+let modal = document.getElementById('miModal');
+let flex = document.getElementById('flex');
+let abrir = document.getElementById('abrir');
+let cerrar = document.getElementById('close');
+
+abrir.addEventListener('click',function(){
+    modal.style.display = 'block';
+});
+
+cerrar.addEventListener('click',function(){
+    modal.styles.display = 'none';
+});
+
+
+window.addEventListener('click',function(){
+if(e.target == flex){
+    modal.style.display = 'none';
+}
+});
+
