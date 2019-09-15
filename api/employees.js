@@ -38,9 +38,16 @@ const patchEmployee = (req, res, next) =>{
     let editEmployee = {...oldEmployee, ...newEmployee}
     employees.splice(oldIndex, 1)
     employees.push(editEmployee)
-    res.send(employees)
-    //res.json(`Se edito el empleado con id ${req.body.id} en el indice ${oldIndex}`)
-
+    res.json(`Se edito el empleado con id ${req.body.id}`)
+    next()
 }
 
-module.exports = { getEmployee, postEmployee, getEmployeeById , patchEmployee }
+const deleteEmployee = (req, res, next) =>{
+    let employee = employees.find(e=>e.id === req.params.id)
+    let index = employees.findIndex(e=>e.id === req.params.id)
+    employees.splice(index, 1)
+    res.json(`Se elimino el empleado ${employee.name} con id ${req.params.id}`)
+    next()
+}
+
+module.exports = { getEmployee, postEmployee, getEmployeeById , patchEmployee, deleteEmployee }

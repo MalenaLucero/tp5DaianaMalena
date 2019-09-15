@@ -14,5 +14,6 @@ router.get('/api/employees', employees.getEmployee)
 router.get('/api/employees/:id', employees.getEmployeeById)
 router.post('/api/employees', employees.postEmployee)
 router.patch('/api/employees', employees.patchEmployee)
+router.delete('/api/employees/:id', employees.deleteEmployee)
 
 module.exports = router

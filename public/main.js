@@ -55,6 +55,8 @@ const createBtn = (id, addClass, icon) =>{
     anchor.innerHTML = icon
     if(addClass === 'edit'){
         anchor.onclick = () => openEdit(id)
+    }else if(addClass === 'delete'){
+        anchor.onclick = () => deleteEmployee(id)
     }
     return anchor
 }
@@ -165,6 +167,18 @@ const editEmployee = () =>{
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(employee)
+    })
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+            initialize()
+        })
+}
+
+const deleteEmployee = (id) =>{
+    fetch(`/api/employees/${id}`, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
     })
         .then(res=>res.json())
         .then(res=>{
