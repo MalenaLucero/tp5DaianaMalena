@@ -13,5 +13,6 @@ router.get('/', (req, res)=>{
 router.get('/api/employees', employees.getEmployee)
 router.get('/api/employees/:id', employees.getEmployeeById)
 router.post('/api/employees', employees.postEmployee)
+router.patch('/api/employees', employees.patchEmployee)
 
 module.exports = router
