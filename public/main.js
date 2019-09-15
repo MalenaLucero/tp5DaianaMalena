@@ -3,7 +3,6 @@ const initialize = () =>{
     fetch('/api/employees')
         .then(res => res.json())
         .then(res => fillTable(res.employees))
-    edit(3)
 }
 
 const fillTable = (employees) =>{
@@ -54,7 +53,9 @@ const createBtn = (id, addClass, icon) =>{
     anchor.href = "#"
     anchor.classList.add(addClass)
     anchor.innerHTML = icon
-    anchor.onclick = () => {console.log(addClass, id)}
+    if(addClass === 'edit'){
+        anchor.onclick = () => openEdit(id)
+    }
     return anchor
 }
 
@@ -125,7 +126,7 @@ const filterError = (text) =>{
     container.appendChild(content)
 }
 
-const edit = (index) =>{
+const openEdit = (index) =>{
     fetch(`/api/employees/${index}`)
         .then(res => res.json())
         .then(res => {
