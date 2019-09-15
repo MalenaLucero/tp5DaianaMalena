@@ -45,7 +45,24 @@
                </div>
         </div>
     </div>
-
+    <div>
+        <h3>Edit employee</h3>
+        <form>
+            <label for="editName">Name</label>
+            <input name="editName" id="editName">
+            <label for="editEmail">Email</label>
+            <input name="editEmail" id="editEmail">
+            <label for="editAddress">Address</label>
+            <textarea name="editAddress" id="editAddress"></textarea>
+            <label for="editPhone">Phone</label>
+            <input name="editPhone" id="editPhone">
+            <p>ID: <span id="editId"></span></p>
+        </form>
+        <div>
+            <a href="#">Cancel</a>
+            <a href="#" onclick="editEmployee()">Edit</a>
+        </div> 
+    </div>
     </header>
     <body>
         <div class="tablebody">

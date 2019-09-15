@@ -1,7 +1,9 @@
 const initialize = () =>{
+    cleanTable()
     fetch('/api/employees')
         .then(res => res.json())
         .then(res => fillTable(res.employees))
+    edit(3)
 }
 
 const fillTable = (employees) =>{
@@ -121,4 +123,51 @@ const filterError = (text) =>{
     const content = document.createElement('p')
     content.innerText = text
     container.appendChild(content)
+}
+
+const edit = (index) =>{
+    fetch(`/api/employees/${index}`)
+        .then(res => res.json())
+        .then(res => {
+            fillEdit(res)
+        })
+}
+
+const fillEdit = (employee) =>{
+    fillEditInput('editName', employee.name)
+    fillEditInput('editEmail', employee.email)
+    fillEditInput('editAddress', employee.address)
+    fillEditInput('editPhone', employee.phone)
+    const idContainer = document.getElementById('editId')
+    idContainer.innerText = employee.id
+}
+
+const fillEditInput = (inputId, content) =>{
+    const input = document.getElementById(inputId)
+    input.value = content
+}
+
+const editEmployee = () =>{
+    let name = document.getElementById('editName').value
+    let email = document.getElementById('editEmail').value
+    let address = document.getElementById('editAddress').value
+    let phone = document.getElementById('editPhone').value
+    let id = document.getElementById('editId').innerText
+    let employee = {
+        name: name,
+        email: email,
+        address: address,
+        phone: phone,
+        id: id
+    }
+    fetch('/api/employees', {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(employee)
+    })
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+            initialize()
+        })
 }
