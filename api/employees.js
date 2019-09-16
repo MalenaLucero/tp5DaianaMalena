@@ -8,6 +8,8 @@ const employees = [
     {name: 'Keiji Akaashi', email: 'kakaashi@fukurodani.com', address: 'Setter 9876', phone: 50171823, id: '7'},
 ]
 
+const deletedEmployees = []
+
 const getEmployee = (req, res, next) =>{
     res.json({employees})
     next()
@@ -45,8 +47,10 @@ const patchEmployee = (req, res, next) =>{
 const deleteEmployee = (req, res, next) =>{
     let employee = employees.find(e=>e.id === req.params.id)
     let index = employees.findIndex(e=>e.id === req.params.id)
+    deletedEmployees.push(employee)
     employees.splice(index, 1)
-    res.json(`Se elimino el empleado ${employee.name} con id ${req.params.id}`)
+    res.send(deletedEmployees)
+    //res.json(`Se elimino el empleado ${employee.name} con id ${req.params.id}`)
     next()
 }
 
