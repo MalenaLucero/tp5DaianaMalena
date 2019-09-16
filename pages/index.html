@@ -44,11 +44,11 @@
         </div>
 
     <!--EDIT EMPLOYEE-->
-    <div>
             <div id="miModal" class="modal">
-            <div class="flex" id="flex">
-                <div class="contenido-modal">  
-                    <div class="modal-body">
+                    <div class="flex" id="flex">
+                        <div class="contenido-modal">  
+                            <div class="modal-body">
+
         <a href="#" class="close" id="closeEditEmployee">&times;</a> 
         <h3>Edit employee</h3>
         <form>
@@ -67,6 +67,9 @@
             <a href="#" onclick="editEmployee()">Edit</a>
         </div> 
     </div>
+    </div>
+    </div>
+    </div>
     
     <body>
         <div class="tablebody">
@@ -74,9 +77,10 @@
                 <input class="filter" id="filter" placeholder="Filter...">
                 <a href="#" onclick="filterById()">Search (by id)</a>
             </form>
-        <table>
+       
+            <table>
             <thead> 
-                <tr>
+                <tr>    
                     <th>Name</th>
                     <th>Email</th>
                     <th>Adress</th>
@@ -91,8 +95,8 @@
                     <td>Tokio street 1234</td>
                     <td>1555554444</td>
                     <td>
-                     <a href="#" class="edit"> <i class="material-icons" title="Edit">&#xE254;</i> </a>
-                     <a href="#" class="delete" > <i class="material-icons" title="Delete">&#xE872;</i> </a>
+                     <a href="#" class="edit" id="abrir"> <i class="material-icons" title="Edit">&#xE254;</i> </a>
+                     <a href="#" class="delete"> <i class="material-icons" title="Delete">&#xE872;</i> </a>
                     </td>
                 </tr>
             </tbody>
