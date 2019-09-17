@@ -8,7 +8,6 @@ const initialize = () =>{
     let modal = document.getElementById('miModal');
     let abrir = document.getElementById('abrir');
     let cerrar = document.getElementById('close');
-let borrar = document.getElementById('borrar');
 
     abrir.addEventListener('click',function(){
         modal.style.display = 'block';
@@ -17,9 +16,17 @@ let borrar = document.getElementById('borrar');
         modal.style.display = 'none';
     });
 
+    let modaltwo = document.getElementById('miModaltwo');
+    let abrirtwo = document.getElementById('abrirtwo');
+    let borrar = document.getElementById('borrar');
+
     borrar.addEventListener('click',function(){
-        modal.style.display = 'none';
+        modaltwo.style.display = 'none';
     });
+    abrirtwo.addEventListener('click',function(){
+        modaltwo.style.display = 'none';
+    });
+   
 }
 
 const fillTable = (employees) =>{
