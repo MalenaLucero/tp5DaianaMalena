@@ -70,25 +70,8 @@ table td{
 /* ARREGLAR ESTO */
 }
 
-
-
 /* MODAL */
-
-
 .modal{
-  display:none;
-  position:fixed;
-  z-index:1;
-  overflow:auto;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background: rgba(0, 0, 0, 0.452);
-}
-
-
-.modaltwo{
   display:none;
   position:fixed;
   z-index:1;
@@ -108,30 +91,12 @@ table td{
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
   animation-name:modal;
   animation-duration:1s;
-  
 }
 /* ANIMACION */
 @keyframes modal{
   from{top:-330px; opacity:0;}
   to{top:0; opacity:1;}
 }
-
-.contenido-modaltwo{
-  position:relative;
-  background-color:#fefefe;
-  margin:auto;
-  width:40%;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
-  animation-name:modal;
-  animation-duration:1s;
-  
-}
-/* ANIMACION */
-@keyframes modaltwo{
-  from{top:-330px; opacity:0;}
-  to{top:0; opacity:1;}
-}
-
 
 .close{
   color: #f2f2f2;
@@ -146,27 +111,9 @@ table td{
   cursor: pointer;
 }
 
-/* .footer{
-padding:8px 16px;
-background: #34495e;
-}
-
-.footer a{
-  color: #f2f2f2;
-  padding: 0px 100px 0px 100px;
-} */
-
 form{
   position:relative;
   margin:auto;
   margin-top: 20px;
   margin-left:30px;
 }
-
-/* .flex{
-  width:100%;
-  height:100%;
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-} */

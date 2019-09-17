@@ -15,14 +15,6 @@ const initialize = () =>{
     cerrar.addEventListener('click',function(){
         modal.style.display = 'none';
     });
-
-    // modal dos
-    let modaltwo = document.getElementById('miModaltwo');
-    let borrar = document.getElementById('borrar');
-
-    borrar.addEventListener('click',function(){
-        modaltwo.style.display = 'block';
-    });
 }
 
 const fillTable = (employees) =>{
