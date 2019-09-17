@@ -199,23 +199,29 @@ const editEmployee = () =>{
     let address = document.getElementById('editAddress').value
     let phone = document.getElementById('editPhone').value
     let id = document.getElementById('editId').innerText
-    let employee = {
+    if(validateForm(name, email, address, phone)){
+        let employee = {
         name: name,
         email: email,
         address: address,
         phone: phone,
         id: id
-    }
-    fetch('/api/employees', {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(employee)
-    })
-        .then(res=>res.json())
-        .then(res=>{
-            console.log(res)
-            initialize()
+        }
+        fetch('/api/employees', {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(employee)
         })
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+                initialize()
+            })
+        inputCleaner('editName')
+        inputCleaner('editEmail')
+        inputCleaner('editAddress')
+        inputCleaner('editPhone')
+    }else(console.log('invalid form'))
 }
 
 const deleteEmployee = (id) =>{
