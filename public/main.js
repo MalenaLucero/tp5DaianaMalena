@@ -97,16 +97,16 @@ const validateForm = (name, email, address, phone) =>{
                 if(validatePhone(phone)){
                     return true
                 }else{
-                    return false
+                    return 'phoneError'
                 }
             }else{
-                return false
+                return 'addressError'
             }
         }else{
-            return false
+            return 'emailError'
         }
     }else{
-        return false
+        return 'nameError'
     }
 }
 
