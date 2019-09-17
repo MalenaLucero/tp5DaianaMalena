@@ -97,19 +97,15 @@ const validateForm = (name, email, address, phone) =>{
                 if(validatePhone(phone)){
                     return true
                 }else{
-                    inputErrorMessage('phoneError', 'phone')
                     return false
                 }
             }else{
-                inputErrorMessage('addressError', 'address')
                 return false
             }
         }else{
-            inputErrorMessage('emailError', 'e-mail')
             return false
         }
     }else{
-        inputErrorMessage('nameError', 'name')
         return false
     }
 }
@@ -203,12 +199,12 @@ const fillEditInput = (inputId, content) =>{
 }
 
 const editEmployee = () =>{
-    let name = document.getElementById('editName').value
-    let email = document.getElementById('editEmail').value
-    let address = document.getElementById('editAddress').value
-    let phone = document.getElementById('editPhone').value
+    let editName = document.getElementById('editName').value
+    let editEmail = document.getElementById('editEmail').value
+    let editAddress = document.getElementById('editAddress').value
+    let editPhone = document.getElementById('editPhone').value
     let id = document.getElementById('editId').innerText
-    if(validateForm(name, email, address, phone)){
+    if(validateForm(editName, editEmail, editAddress, editPhone)){
         let employee = {
         name: name,
         email: email,
