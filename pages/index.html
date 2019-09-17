@@ -46,7 +46,7 @@
 
     <!--EDIT EMPLOYEE-->
     <div>
-        <a href="#" class="close" id="closeEditEmployee">&times;</a>
+        
         <h3>Edit employee</h3>
         <form>
             <label for="editName">Name</label>
@@ -60,6 +60,7 @@
             <p>ID: <span id="editId"></span></p>
         </form>
         <div>
+            <a href="#" class="close" id="closeEditEmployee">&times;</a>
             <a href="#">Cancel</a>
             <a href="#" onclick="editEmployee()">Edit</a>
         </div>
@@ -67,7 +68,10 @@
 
 
 <!--DELETE-->
-    <div>
+<div id="miModal" class="modal">
+        <div class="flex" id="flex">
+            <div class="contenido-modal">
+                <div class="modal-body">
         <h3>Delete Employee</h3>
         <p>Are you sure you want to delete these Records?</p>
         <p>
@@ -76,7 +80,9 @@
         <a href="#">Cancel</a>
         <a href="#" class="delete" title="Delete">Delete</a>
     </div>
-
+</div>
+</div>
+</div>
 
     <body>
         <div class="tablebody">
