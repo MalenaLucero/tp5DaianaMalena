@@ -82,17 +82,6 @@ table td{
   height:100%;
   background: rgba(0, 0, 0, 0.452);
 }
-.modaltwo{
-  display:none;
-  position:fixed;
-  z-index:1;
-  overflow:auto;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background: rgba(0, 0, 0, 0.452);
-}
 
 .contenido-modal{
   position:relative;
@@ -105,11 +94,6 @@ table td{
 }
 /* ANIMACION */
 @keyframes modal{
-  from{top:-330px; opacity:0;}
-  to{top:0; opacity:1;}
-}
-/* ANIMACION */
-@keyframes modaltwo{
   from{top:-330px; opacity:0;}
   to{top:0; opacity:1;}
 }

@@ -15,17 +15,6 @@ const initialize = () =>{
     cerrar.addEventListener('click',function(){
         modal.style.display = 'none';
     });
-
-    let modaltwo = document.getElementById('miModaltwo');
-    let abrirtwo = document.getElementById('abrirtwo');
-    let borrar = document.getElementById('borrar');
-
-    borrar.addEventListener('click',function(){
-        modaltwo.style.display = 'none';
-    });
-    abrirtwo.addEventListener('click',function(){
-        modaltwo.style.display = 'none';
-    });
    
 }
 
