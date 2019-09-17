@@ -20,32 +20,34 @@
 
 
     <div id="miModal" class="modal">
-            <div class="contenido-modal">
-                <div class="modal-body">
-                    <h3>Add employee</h3>
-                    <form>
-                        <label for="name">Name</label>
-                        <input name="name" id="name">
-                        <label for="email">Email</label>
-                        <input name="email" id="email">
-                        <label for="address">Address</label>
-                        <textarea name="address" id="address"></textarea>
-                        <label for="phone">Phone</label>
-                        <input name="phone" id="phone">
-                    </form>
-                    <div>
-                        <a href="#">Cancel</a>
-                        <a href="#" onclick="sendInfo()">Accept</a>
-                    </div>
+        <div class="contenido-modal">
+            <div class="modal-body">
+                <h3>Add employee</h3>
+                <form>
+                    <label for="name">Name</label>
+                    <input name="name" id="name">
+                    <label for="email">Email</label>
+                    <input name="email" id="email">
+                    <label for="address">Address</label>
+                    <textarea name="address" id="address"></textarea>
+                    <label for="phone">Phone</label>
+                    <input name="phone" id="phone">
+                </form>
+                <div>
+                    <a href="#">Cancel</a>
+                    <a href="#" onclick="sendInfo()">Accept</a>
                 </div>
-                <span class="close" id="close">&times;</span>
             </div>
+            <span class="close" id="close">&times;</span>
         </div>
+    </div>
     </div>
 
     <!--EDIT EMPLOYEE-->
     <div>
-
+            <div id="miModaltwo" class="modaltwo">
+                    <div class="contenido-modaltwo">
+                        <div class="modal-bodytwo">
         <h3>Edit employee</h3>
         <form>
             <label for="editName">Name</label>
@@ -68,14 +70,14 @@
 
     <!--DELETE-->
     <div>
-                    <h3>Delete Employee</h3>
-                    <p>Are you sure you want to delete these Records?</p>
-                    <p>
-                        <small>This action cannot be undone.</small>
-                    </p>
-                    <a href="#">Cancel</a>
-                    <a href="#" class="delete" title="Delete">Delete</a>
-           
+        <h3>Delete Employee</h3>
+        <p>Are you sure you want to delete these Records?</p>
+        <p>
+            <small>This action cannot be undone.</small>
+        </p>
+        <a href="#">Cancel</a>
+        <a href="#" class="delete" title="Delete">Delete</a>
+
     </div>
 
     <body>
@@ -103,7 +105,7 @@
                         <td>1555554444</td>
                         <td>
                             <a href="#" class="edit"> <i class="material-icons" title="Edit">&#xE254;</i> </a>
-                            <a href="#" class="delete"> <i class="material-icons" title="Delete">&#xE872;</i> </a>
+                            <a href="#" class="delete" id="borrar"> <i class="material-icons" title="Delete">&#xE872;</i> </a>
                         </td>
                     </tr>
                 </tbody>

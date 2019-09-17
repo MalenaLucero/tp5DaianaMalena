@@ -4,7 +4,7 @@ const initialize = () =>{
         .then(res => res.json())
         .then(res => fillTable(res.employees))
 
-    // modal
+    // modal uno
     let modal = document.getElementById('miModal');
     let abrir = document.getElementById('abrir');
     let cerrar = document.getElementById('close');
@@ -14,6 +14,14 @@ const initialize = () =>{
     });
     cerrar.addEventListener('click',function(){
         modal.style.display = 'none';
+    });
+
+    // modal dos
+    let modaltwo = document.getElementById('miModaltwo');
+    let borrar = document.getElementById('borrar');
+
+    borrar.addEventListener('click',function(){
+        modaltwo.style.display = 'block';
     });
 }
 
