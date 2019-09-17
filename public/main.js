@@ -66,31 +66,74 @@ const sendInfo = () =>{
     let email = document.getElementById('email').value
     let address = document.getElementById('address').value
     let phone = document.getElementById('phone').value
-    let employee = {
+    if(validateForm(name, email, address, phone)){
+       let employee = {
         name: name,
         email: email,
         address: address,
         phone: phone
-    }
-    fetch('/api/employees', {
-        method: 'post',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(employee)
-    })
-        .then(res=>res.json())
-        .then(res=>{
-            console.log(res)
-            initialize()
+        }
+        fetch('/api/employees', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(employee)
         })
+            .then(res=>res.json())
+            .then(res=>{
+                console.log(res)
+                initialize()
+            }) 
+        inputCleaner('name')
+        inputCleaner('email')
+        inputCleaner('address')
+        inputCleaner('phone')
+    }else(console.log('invalid form'))
 }
 
-const generalInputValidation = (input) =>{
-    let isValid = false
-    switch(input){
-        case '':
-            isValid = false
-            break
+const validateForm = (name, email, address, phone) =>{
+    if(validateName(name)){
+        if(validateEmail(email)){
+            if(validateAddress(address)){
+                if(validatePhone(phone)){
+                    return true
+                }else{
+                    return false
+                }
+            }else{
+                return false
+            }
+        }else{
+            return false
+        }
+    }else{
+        return false
     }
+}
+
+const validateName = (name) =>{
+    if(name.length > 3 && name.length < 15 && name !== ''){
+        return true
+    }else{
+        return false
+    }
+}
+
+const validateEmail = (email) =>{
+    const re = /\S+@\S+\.\S+/
+    return re.test(email)
+}
+
+const validateAddress = (address) =>{
+    if(address !== ''){
+        return true
+    }else{
+        return false
+    }
+}
+
+const validatePhone = (phone) =>{
+    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    return re.test(phone)
 }
 
 const searchEmployee = () =>{
