@@ -4,7 +4,7 @@ const server = express()
 const router = require('./modules/router')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const port = 3000
+const port = 4002
 
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())

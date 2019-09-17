@@ -97,15 +97,19 @@ const validateForm = (name, email, address, phone) =>{
                 if(validatePhone(phone)){
                     return true
                 }else{
+                    inputErrorMessage('phoneError', 'phone')
                     return false
                 }
             }else{
+                inputErrorMessage('addressError', 'address')
                 return false
             }
         }else{
+            inputErrorMessage('emailError', 'e-mail')
             return false
         }
     }else{
+        inputErrorMessage('nameError', 'name')
         return false
     }
 }
@@ -134,6 +138,11 @@ const validateAddress = (address) =>{
 const validatePhone = (phone) =>{
     const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
     return re.test(phone)
+}
+
+const inputErrorMessage = (containerId, inputElement) =>{
+    const container = document.getElementById(containerId)
+    container.innerText = `Invalid ${inputElement}`
 }
 
 const searchEmployee = () =>{
