@@ -66,28 +66,42 @@ const sendInfo = () =>{
     let email = document.getElementById('email').value
     let address = document.getElementById('address').value
     let phone = document.getElementById('phone').value
-    if(validateForm(name, email, address, phone)){
-       let employee = {
-        name: name,
-        email: email,
-        address: address,
-        phone: phone
-        }
-        fetch('/api/employees', {
-            method: 'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(employee)
-        })
-            .then(res=>res.json())
-            .then(res=>{
-                console.log(res)
-                initialize()
-            }) 
-        inputCleaner('name')
-        inputCleaner('email')
-        inputCleaner('address')
-        inputCleaner('phone')
-    }else(console.log('invalid form'))
+    switch(validateForm(name, email, address, phone)){
+        case true:
+            let employee = {
+                name: name,
+                email: email,
+                address: address,
+                phone: phone
+            }
+            fetch('/api/employees', {
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(employee)
+            })
+                .then(res=>res.json())
+                .then(res=>{
+                    console.log(res)
+                    initialize()
+                }) 
+            inputCleaner('name')
+            inputCleaner('email')
+            inputCleaner('address')
+            inputCleaner('phone')
+            break
+        case 'invalidName':
+            console.log('invalid name')
+            break
+        case 'invalidEmail':
+            console.log('invalid email')
+            break
+        case 'invalidAddress':
+            console.log('invalid address')
+            break
+        case 'invalidPhone':
+            console.log('invalid phone')
+            break
+    }
 }
 
 const validateForm = (name, email, address, phone) =>{
@@ -97,16 +111,16 @@ const validateForm = (name, email, address, phone) =>{
                 if(validatePhone(phone)){
                     return true
                 }else{
-                    return false
+                    return 'invalidPhone'
                 }
             }else{
-                return false
+                return 'invalidAddress'
             }
         }else{
-            return false
+            return 'invalidEmail'
         }
     }else{
-        return false
+        return 'invalidName'
     }
 }
 
@@ -199,34 +213,48 @@ const fillEditInput = (inputId, content) =>{
 }
 
 const editEmployee = () =>{
-    let editName = document.getElementById('editName').value
-    let editEmail = document.getElementById('editEmail').value
-    let editAddress = document.getElementById('editAddress').value
-    let editPhone = document.getElementById('editPhone').value
+    let name = document.getElementById('editName').value
+    let email = document.getElementById('editEmail').value
+    let address = document.getElementById('editAddress').value
+    let phone = document.getElementById('editPhone').value
     let id = document.getElementById('editId').innerText
-    if(validateForm(editName, editEmail, editAddress, editPhone)){
-        let employee = {
-        name: name,
-        email: email,
-        address: address,
-        phone: phone,
-        id: id
-        }
-        fetch('/api/employees', {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(employee)
-        })
-            .then(res=>res.json())
-            .then(res=>{
-                console.log(res)
-                initialize()
+    switch(validateForm(name, email, address, phone)){
+        case true:
+            let employee = {
+                name: name,
+                email: email,
+                address: address,
+                phone: phone,
+                id: id
+            }
+            fetch('/api/employees', {
+                method: 'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(employee)
             })
-        inputCleaner('editName')
-        inputCleaner('editEmail')
-        inputCleaner('editAddress')
-        inputCleaner('editPhone')
-    }else(console.log('invalid form'))
+                .then(res=>res.json())
+                .then(res=>{
+                    console.log(res)
+                    initialize()
+                })
+            inputCleaner('editName')
+            inputCleaner('editEmail')
+            inputCleaner('editAddress')
+            inputCleaner('editPhone')
+            break
+        case 'invalidName':
+            console.log('invalid name')
+            break
+        case 'invalidEmail':
+            console.log('invalid email')
+            break
+        case 'invalidAddress':
+            console.log('invalid address')
+            break
+        case 'invalidPhone':
+            console.log('invalid phone')
+            break
+    }
 }
 
 const deleteEmployee = (id) =>{
