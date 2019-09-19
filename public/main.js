@@ -62,6 +62,10 @@ const createBtn = (id, addClass, icon) =>{
 }
 
 const sendInfo = () =>{
+    innerHTMLCleaner('nameError')
+    innerHTMLCleaner('emailError')
+    innerHTMLCleaner('addressError')
+    innerHTMLCleaner('phoneError')
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value
     let address = document.getElementById('address').value
@@ -90,16 +94,16 @@ const sendInfo = () =>{
             inputCleaner('phone')
             break
         case 'invalidName':
-            console.log('invalid name')
+            inputErrorMessage('nameError', 'name')
             break
         case 'invalidEmail':
-            console.log('invalid email')
+            inputErrorMessage('emailError', 'e-mail')
             break
         case 'invalidAddress':
-            console.log('invalid address')
+            inputErrorMessage('addressError', 'address')
             break
         case 'invalidPhone':
-            console.log('invalid phone')
+            inputErrorMessage('phoneError', 'phone')
             break
     }
 }
@@ -111,7 +115,6 @@ const validateForm = (name, email, address, phone) =>{
                 if(validatePhone(phone)){
                     return true
                 }else{
-<<<<<<< HEAD
                     return 'invalidPhone'
                 }
             }else{
@@ -122,18 +125,6 @@ const validateForm = (name, email, address, phone) =>{
         }
     }else{
         return 'invalidName'
-=======
-                    return 'phoneError'
-                }
-            }else{
-                return 'addressError'
-            }
-        }else{
-            return 'emailError'
-        }
-    }else{
-        return 'nameError'
->>>>>>> 93aa5db493cf8707ae8085dcffb79e63d0256a1d
     }
 }
 
@@ -194,6 +185,11 @@ const filterById = () =>{
 const inputCleaner = (inputId) =>{
     const input = document.getElementById(inputId)
     input.value = ''
+}
+
+const innerHTMLCleaner = (elementId) =>{
+    const element = document.getElementById(elementId)
+    element.innerHTML = ''
 }
 
 const filterError = (text) =>{
