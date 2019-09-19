@@ -222,6 +222,10 @@ const fillEditInput = (inputId, content) =>{
 }
 
 const editEmployee = () =>{
+    innerHTMLCleaner('editNameError')
+    innerHTMLCleaner('editEmailError')
+    innerHTMLCleaner('editAddressError')
+    innerHTMLCleaner('editPhoneError')
     let name = document.getElementById('editName').value
     let email = document.getElementById('editEmail').value
     let address = document.getElementById('editAddress').value
@@ -250,18 +254,19 @@ const editEmployee = () =>{
             inputCleaner('editEmail')
             inputCleaner('editAddress')
             inputCleaner('editPhone')
+            innerHTMLCleaner('editId')
             break
         case 'invalidName':
-            console.log('invalid name')
+            inputErrorMessage('editNameError', 'name')
             break
         case 'invalidEmail':
-            console.log('invalid email')
+            inputErrorMessage('editEmailError', 'e-mail')
             break
         case 'invalidAddress':
-            console.log('invalid address')
+            inputErrorMessage('editAdressError', 'address')
             break
         case 'invalidPhone':
-            console.log('invalid phone')
+            inputErrorMessage('editPhoneError', 'phone')
             break
     }
 }
