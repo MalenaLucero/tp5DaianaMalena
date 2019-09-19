@@ -111,6 +111,7 @@ const validateForm = (name, email, address, phone) =>{
                 if(validatePhone(phone)){
                     return true
                 }else{
+<<<<<<< HEAD
                     return 'invalidPhone'
                 }
             }else{
@@ -121,6 +122,18 @@ const validateForm = (name, email, address, phone) =>{
         }
     }else{
         return 'invalidName'
+=======
+                    return 'phoneError'
+                }
+            }else{
+                return 'addressError'
+            }
+        }else{
+            return 'emailError'
+        }
+    }else{
+        return 'nameError'
+>>>>>>> 93aa5db493cf8707ae8085dcffb79e63d0256a1d
     }
 }
 
