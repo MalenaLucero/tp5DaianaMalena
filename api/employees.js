@@ -25,7 +25,7 @@ const postEmployee = (req, res, next) =>{
 
 const getEmployeeById = (req, res, next) =>{
     let employee = employees.find((e) => e.id === req.params.id)
-    if(employee ){
+    if(employee){
         res.send(employee)
     }else{
         res.status(404).json('no encontramos al usuario')
