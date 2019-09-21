@@ -1,8 +1,11 @@
 const express = require('express')
 const path = require('path')
+const logger = require('morgan')
 
 const employees = require('../api/employees')
 const router = express.Router()
+
+router.use(logger('dev'))
 
 //pages routes
 router.get('/', (req, res)=>{
@@ -15,5 +18,9 @@ router.get('/api/employees/:id', employees.getEmployeeById)
 router.post('/api/employees', employees.postEmployee)
 router.patch('/api/employees', employees.patchEmployee)
 router.delete('/api/employees/:id', employees.deleteEmployee)
+
+
+
+
 
 module.exports = router
