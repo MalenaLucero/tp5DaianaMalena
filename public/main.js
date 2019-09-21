@@ -62,35 +62,101 @@ const createBtn = (id, addClass, icon) =>{
 }
 
 const sendInfo = () =>{
+    innerHTMLCleaner('nameError')
+    innerHTMLCleaner('emailError')
+    innerHTMLCleaner('addressError')
+    innerHTMLCleaner('phoneError')
     let name = document.getElementById('name').value
     let email = document.getElementById('email').value
     let address = document.getElementById('address').value
     let phone = document.getElementById('phone').value
-    let employee = {
-        name: name,
-        email: email,
-        address: address,
-        phone: phone
-    }
-    fetch('/api/employees', {
-        method: 'post',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(employee)
-    })
-        .then(res=>res.json())
-        .then(res=>{
-            console.log(res)
-            initialize()
-        })
-}
-
-const generalInputValidation = (input) =>{
-    let isValid = false
-    switch(input){
-        case '':
-            isValid = false
+    switch(validateForm(name, email, address, phone)){
+        case true:
+            let employee = {
+                name: name,
+                email: email,
+                address: address,
+                phone: phone
+            }
+            fetch('/api/employees', {
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(employee)
+            })
+                .then(res=>res.json())
+                .then(res=>{
+                    console.log(res)
+                    initialize()
+                }) 
+            inputCleaner('name')
+            inputCleaner('email')
+            inputCleaner('address')
+            inputCleaner('phone')
+            break
+        case 'invalidName':
+            inputErrorMessage('nameError', 'name')
+            break
+        case 'invalidEmail':
+            inputErrorMessage('emailError', 'e-mail')
+            break
+        case 'invalidAddress':
+            inputErrorMessage('addressError', 'address')
+            break
+        case 'invalidPhone':
+            inputErrorMessage('phoneError', 'phone')
             break
     }
+}
+
+const validateForm = (name, email, address, phone) =>{
+    if(validateName(name)){
+        if(validateEmail(email)){
+            if(validateAddress(address)){
+                if(validatePhone(phone)){
+                    return true
+                }else{
+                    return 'invalidPhone'
+                }
+            }else{
+                return 'invalidAddress'
+            }
+        }else{
+            return 'invalidEmail'
+        }
+    }else{
+        return 'invalidName'
+    }
+}
+
+const validateName = (name) =>{
+    if(name.length > 3 && name.length < 15 && name !== ''){
+        return true
+    }else{
+        return false
+    }
+}
+
+const validateEmail = (email) =>{
+    const re = /\S+@\S+\.\S+/
+    return re.test(email)
+}
+
+const validateAddress = (address) =>{
+    if(address !== ''){
+        return true
+    }else{
+        return false
+    }
+}
+
+const validatePhone = (phone) =>{
+    const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    return re.test(phone)
+}
+
+const inputErrorMessage = (containerId, inputElement) =>{
+    const container = document.getElementById(containerId)
+    container.innerText = `Invalid ${inputElement}`
 }
 
 const searchEmployee = () =>{
@@ -119,6 +185,11 @@ const filterById = () =>{
 const inputCleaner = (inputId) =>{
     const input = document.getElementById(inputId)
     input.value = ''
+}
+
+const innerHTMLCleaner = (elementId) =>{
+    const element = document.getElementById(elementId)
+    element.innerHTML = ''
 }
 
 const filterError = (text) =>{
@@ -151,28 +222,53 @@ const fillEditInput = (inputId, content) =>{
 }
 
 const editEmployee = () =>{
+    innerHTMLCleaner('editNameError')
+    innerHTMLCleaner('editEmailError')
+    innerHTMLCleaner('editAddressError')
+    innerHTMLCleaner('editPhoneError')
     let name = document.getElementById('editName').value
     let email = document.getElementById('editEmail').value
     let address = document.getElementById('editAddress').value
     let phone = document.getElementById('editPhone').value
     let id = document.getElementById('editId').innerText
-    let employee = {
-        name: name,
-        email: email,
-        address: address,
-        phone: phone,
-        id: id
+    switch(validateForm(name, email, address, phone)){
+        case true:
+            let employee = {
+                name: name,
+                email: email,
+                address: address,
+                phone: phone,
+                id: id
+            }
+            fetch('/api/employees', {
+                method: 'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(employee)
+            })
+                .then(res=>res.json())
+                .then(res=>{
+                    console.log(res)
+                    initialize()
+                })
+            inputCleaner('editName')
+            inputCleaner('editEmail')
+            inputCleaner('editAddress')
+            inputCleaner('editPhone')
+            innerHTMLCleaner('editId')
+            break
+        case 'invalidName':
+            inputErrorMessage('editNameError', 'name')
+            break
+        case 'invalidEmail':
+            inputErrorMessage('editEmailError', 'e-mail')
+            break
+        case 'invalidAddress':
+            inputErrorMessage('editAdressError', 'address')
+            break
+        case 'invalidPhone':
+            inputErrorMessage('editPhoneError', 'phone')
+            break
     }
-    fetch('/api/employees', {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(employee)
-    })
-        .then(res=>res.json())
-        .then(res=>{
-            console.log(res)
-            initialize()
-        })
 }
 
 const deleteEmployee = (id) =>{
