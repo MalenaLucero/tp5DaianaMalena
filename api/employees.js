@@ -1,3 +1,5 @@
+const uniqid = require('uniqid')
+
 const employees = [
     {name: 'Daichi Sawamura', email: 'dsawamura@karasuno.com', address: 'Miyagi 1234', phone: 31181768, id: '1'},
     {name: 'Kei Tsukishima', email: 'ktsukishima@karasuno.com', address: 'Spiker 1234', phone: 27161883, id: '2'},
@@ -15,7 +17,7 @@ const getEmployee = (req, res, next) =>{
 
 const postEmployee = (req, res, next) =>{
     let data = req.body
-    data.id = `${employees.length + 1}`
+    data.id = `${uniqid()}`
     employees.push(data)
     res.status(201).json(`recibido con el id ${data.id}`)
     next()
