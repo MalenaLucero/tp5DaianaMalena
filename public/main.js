@@ -61,6 +61,14 @@ const createBtn = (id, addClass, icon) =>{
     return anchor
 }
 
+const openAddEmployee = () =>{
+    showElement('addEmployeeModal')
+}
+
+const closeAddEmployee = () =>{
+    hideElement('addEmployeeModal')
+}
+
 const sendInfo = () =>{
     innerHTMLCleaner('nameError')
     innerHTMLCleaner('emailError')
@@ -88,6 +96,7 @@ const sendInfo = () =>{
                     console.log(res)
                     initialize()
                 }) 
+            hideElement('addEmployeeModal')
             inputCleaner('name')
             inputCleaner('email')
             inputCleaner('address')
@@ -203,6 +212,7 @@ const openEdit = (index) =>{
     fetch(`/api/employees/${index}`)
         .then(res => res.json())
         .then(res => {
+            showElement('editEmployeeModal')
             fillEdit(res)
         })
 }
@@ -250,6 +260,7 @@ const editEmployee = () =>{
                     console.log(res)
                     initialize()
                 })
+            hideElement('editEmployeeModal')
             inputCleaner('editName')
             inputCleaner('editEmail')
             inputCleaner('editAddress')
@@ -271,6 +282,10 @@ const editEmployee = () =>{
     }
 }
 
+const closeEditEmployee = () =>{
+    hideElement('editEmployeeModal')
+}
+
 const deleteEmployee = (id) =>{
     fetch(`/api/employees/${id}`, {
         method: 'DELETE',
@@ -281,4 +296,14 @@ const deleteEmployee = (id) =>{
             console.log(res)
             initialize()
         })
+}
+
+const showElement = elementId =>{
+    const element = document.getElementById(elementId)
+    element.classList.replace('hide', 'show')
+}
+
+const hideElement = elementId =>{
+    const element = document.getElementById(elementId)
+    element.classList.replace('show', 'hide')
 }

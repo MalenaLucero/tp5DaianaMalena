@@ -1,35 +1,31 @@
 body{
+  margin: 0;
     background-color: #808080;
     font-family: 'Varela Round', sans-serif;
 }
 
 /* BOTON EMPLOYED */
    .addBoton{
-    color: #ffffff;
-  position: fixed;
-    z-index: 1;
-    top: 134px;
-    left: 1025px;    
+    color: #ffffff;   
+    float: right;
+    background-color: #0a4957;
+    padding: 10px;
 }   
 
-.addBoton .material-icons{
-  position: fixed;
-    z-index: 1;
-    top: 130px;
-    left: 1000px;
+.addBtnContainer{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 25px;
 }
     
 /* BARRA EMPLOYED */
 h1{
   background: #0a4957; 
   color: #ffffff;
-  position: fixed;
-  z-index: 1;
-  overflow: auto;
+  margin: 0 auto;
   top: 90px;
   left: 135px;
   width: 80%;
-  height: 8%;
   padding: 10px 0px 0px 40px;
 }
 
@@ -51,10 +47,17 @@ h1{
   font-size: 13px;
 }
 
+table{
+  width: 100%;
+}
+
 /* TABLA TITULOS */
+table th{
+  padding: 15px;
+  text-align: left;
+}
+
 table tr{
-  display: flex;
-  justify-content: space-between;
   margin: -20px 20px 50px 220px;
   font-size: 18px;
 }
@@ -62,11 +65,57 @@ table tr{
 /* TABLA DATOS */
 table td{
   color: #0a4957;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 8px 20px 20px 10px;
   font-size: 15px;
+  padding:15px;
 /* ARREGLAR ESTO */
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+header{
+  position: relative;
+}
+
+.modal{
+  position: fixed;
+  color: black;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(214, 214, 214, 0.5);
+  z-index: 99;
+  top: 0;
+}
+
+.modalContent{
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 20px;
+}
+
+.modalForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.inputError{
+  margin-bottom: 20px;
+  color: red;
+}
+
+.tableContainer{
+  background-color: white;
+  width: 80%;
+  margin: 60px auto;
+  padding: 20px;
 }
 

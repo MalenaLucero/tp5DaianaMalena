@@ -15,95 +15,78 @@
 <body onload="initialize()">
     <header>
         <h1>Manage employees</h1>
-        <a href="#" class="addBoton"><i class="material-icons">&#xE147;</i>Add employee</a>
-
-  
-
-         <div class="hide">
-            <div id="miModal" class="modal">
-        <div class="flex" id="flex">
-            <div class="contenido-modal">
-                <div class="modal-header flex">
-            <h3>Add employee</h3>
-            <form>
-                <label for="name">Name</label>
-                <input name="name" id="name">
-                <span id="nameError"></span>
-                <label for="email">Email</label>
-                <input name="email" id="email">
-                <span id="emailError"></span>
-                <label for="address">Address</label>
-                <textarea name="address" id="address"></textarea>
-                <span id="addressError"></span>
-                <label for="phone">Phone</label>
-                <input name="phone" id="phone">
-                <span id="phoneError"></span>
+        <div class="addBtnContainer">
+            <a href="#" class="addBoton" onclick="openAddEmployee()"><i class="material-icons">&#xE147;</i>Add employee</a>
+        </div>
+        <!--ADD EMPLOYEE MODAL-->
+        <div id="addEmployeeModal" class="modal hide">
+            <div class="modalContent">
+                <h3>Add employee</h3>
+                <form class="modalForm">
+                    <label for="name">Name</label>
+                    <input name="name" id="name">
+                    <span id="nameError" class="inputError"></span>
+                    <label for="email">Email</label>
+                    <input name="email" id="email">
+                    <span id="emailError" class="inputError"></span>
+                    <label for="address">Address</label>
+                    <textarea name="address" id="address"></textarea>
+                    <span id="addressError" class="inputError"></span>
+                    <label for="phone">Phone</label>
+                    <input name="phone" id="phone">
+                    <span id="phoneError" class="inputError"></span>
+                </form>
+                <div>
+                    <a href="#" onclick="closeAddEmployee()">Cancel</a>
+                    <a href="#" onclick="sendInfo()">Accept</a>
+                </div> 
+            </div>
+        </div>
+    </header>
+    <!--EDIT EMPLOYEE-->
+    <div class="modal hide" id="editEmployeeModal">
+        <div class="modalContent"> 
+            <h3>Edit employee</h3>
+            <form class="modalForm">
+                <label for="editName">Name</label>
+                <input name="editName" id="editName">
+                <span id="editNameError" class="inputError"></span>
+                <label for="editEmail">Email</label>
+                <input name="editEmail" id="editEmail">
+                <span id="editEmailError" class="inputError"></span>
+                <label for="editAddress">Address</label>
+                <textarea name="editAddress" id="editAddress"></textarea>
+                <span id="editAddressError" class="inputError"></span>
+                <label for="editPhone">Phone</label>
+                <input name="editPhone" id="editPhone">
+                <span id="editPhoneError" class="inputError"></span>
+                <p>ID: <span id="editId"></span></p>
             </form>
             <div>
-                <a href="#">Cancel</a>
-                <a href="#" onclick="sendInfo()">Accept</a>
+                <a href="#"onclick="closeEditEmployee()">Cancel</a>
+                <a href="#" onclick="editEmployee()">Edit</a>
             </div> 
         </div>
-         <span class="close" id="close">&times;</span> 
-               </div>  
-               </div>
-        </div>
     </div>
-    <!--EDIT EMPLOYEE-->
-    <div>
-        <a href="#" class="close" id="closeEditEmployee">&times;</a> 
-        <h3>Edit employee</h3>
-        <form>
-            <label for="editName">Name</label>
-            <input name="editName" id="editName">
-            <span id="editNameError"></span>
-            <label for="editEmail">Email</label>
-            <input name="editEmail" id="editEmail">
-            <span id="editEmailError"></span>
-            <label for="editAddress">Address</label>
-            <textarea name="editAddress" id="editAddress"></textarea>
-            <span id="editAddressError"></span>
-            <label for="editPhone">Phone</label>
-            <input name="editPhone" id="editPhone">
-            <span id="editPhoneError"></span>
-            <p>ID: <span id="editId"></span></p>
-        </form>
-        <div>
-            <a href="#">Cancel</a>
-            <a href="#" onclick="editEmployee()">Edit</a>
-        </div> 
-    </div>
-    </header>
     <body>
-        <div class="tablebody">
+        <div class="tableContainer">
             <form id="formFilter">
                 <input class="filter" id="filter" placeholder="Filter...">
                 <a href="#" onclick="filterById()">Search (by id)</a>
             </form>
-        <table>
-            <thead> 
-                <tr>
-                 
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Adress</th>
-                    <th>Phone</th>
-                    <th>Actions</th> 
-                </tr>
-            </thead>
-            <tbody id="employeeTable">
-                <tr>
-                    <td>Kurou Tetrsurou</td>
-                    <td>ikemen@nekoma.com</td>
-                    <td>Tokio street 1234</td>
-                    <td>1555554444</td>
-                    <td>
-                     <a href="#" class="edit"> <i class="material-icons" title="Edit">&#xE254;</i> </a>
-                     <a href="#" class="delete"> <i class="material-icons" title="Delete">&#xE872;</i> </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            <table>
+                <thead> 
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Adress</th>
+                        <th>Phone</th>
+                        <th>Actions</th> 
+                    </tr>
+                </thead>
+                <tbody id="employeeTable"></tbody>
+            </table>
         </div>
     </body>
 </body>
