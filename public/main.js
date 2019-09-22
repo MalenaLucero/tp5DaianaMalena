@@ -16,6 +16,19 @@ const initialize = () =>{
         modal.style.display = 'none';
     });
    
+  // modal dos
+  let modaldelete = document.getElementById('miModaldelete');
+  let abrirdelete = document.getElementById('abrirdelete');
+  let cerrardelete = document.getElementById('closedelete');
+
+  abrirdelete.addEventListener('click',function(){
+      modaldelete.style.display = 'block';
+  });
+  cerrardelete.addEventListener('click',function(){
+      modaldelete.style.display = 'none';
+  });
+
+
 }
 
 const fillTable = (employees) =>{
