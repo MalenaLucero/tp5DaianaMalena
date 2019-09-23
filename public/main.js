@@ -56,13 +56,31 @@ const createBtn = (id, addClass, icon) =>{
     if(addClass === 'edit'){
         anchor.onclick = () => openEdit(id)
     }else if(addClass === 'delete'){
-        anchor.onclick = () => deleteEmployee(id)
+        anchor.onclick = () => openDeleteModal(id)
     }
     return anchor
 }
 
 const openAddEmployee = () =>{
     showElement('addEmployeeModal')
+}
+
+const openDeleteModal = (id) =>{
+    showElement('deleteModal')
+    const btnContainer = document.getElementById('deleteModalBtn')
+    btnContainer.innerHTML = ''
+    const employeeId = document.getElementById('deleteEmployeeId')
+    employeeId.innerText = id
+    const cancelBtn = document.createElement('a')
+    cancelBtn.onclick = () => closeDeleteModal()
+    cancelBtn.innerText = 'Cancel'
+    cancelBtn.href = "#"
+    const confirmBtn = document.createElement('a')
+    confirmBtn.onclick = () => deleteEmployee(id)
+    confirmBtn.innerText = 'Confirm'
+    confirmBtn.href = "#"
+    btnContainer.appendChild(cancelBtn)
+    btnContainer.appendChild(confirmBtn)
 }
 
 const closeAddEmployee = () =>{
@@ -176,6 +194,7 @@ const searchEmployee = () =>{
 }
 
 const filterById = () =>{
+    innerHTMLCleaner('idNotFound')
     const filter = document.getElementById('filter').value
     fetch(`/api/employees/${filter}`)
         .then(res => res.json())
@@ -202,10 +221,8 @@ const innerHTMLCleaner = (elementId) =>{
 }
 
 const filterError = (text) =>{
-    const container = document.getElementById('formFilter')
-    const content = document.createElement('p')
-    content.innerText = text
-    container.appendChild(content)
+    const container = document.getElementById('idNotFound')
+    container.innerText = text
 }
 
 const openEdit = (index) =>{
@@ -286,6 +303,10 @@ const closeEditEmployee = () =>{
     hideElement('editEmployeeModal')
 }
 
+const closeDeleteModal = () =>{
+    hideElement('deleteModal')
+}
+
 const deleteEmployee = (id) =>{
     fetch(`/api/employees/${id}`, {
         method: 'DELETE',
@@ -294,6 +315,7 @@ const deleteEmployee = (id) =>{
         .then(res=>res.json())
         .then(res=>{
             console.log(res)
+            hideElement('deleteModal')
             initialize()
         })
 }
