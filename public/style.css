@@ -67,12 +67,11 @@ table td{
   justify-content: space-between;
   margin: 8px 20px 20px 10px;
   font-size: 15px;
-/* ARREGLAR ESTO */
 }
 
 /* MODAL */
 .modal{
-  display:none;
+  display:none; 
   position:fixed;
   z-index:1;
   overflow:auto;
@@ -81,6 +80,30 @@ table td{
   width:100%;
   height:100%;
   background: rgba(0, 0, 0, 0.452);
+}
+
+.modaldos{
+ display:none; /*SI SE COMENTA APARECE */
+ position:fixed;
+ z-index:1;
+ overflow:auto;
+ left:0;
+ top:0;
+ width:100%;
+ height:100%;
+ background: rgba(0, 0, 0, 0.452);
+}
+
+.modaltres{
+ display:none;/* SI SE COMENTA APARECE */
+ position:fixed;
+ z-index:1;
+ overflow:auto;
+ left:0;
+ top:0;
+ width:100%;
+ height:100%;
+ background: rgba(0, 0, 0, 0.452);
 }
 
 .contenido-modal{
@@ -99,26 +122,31 @@ table td{
   to{top:0; opacity:1;}
 }
 
-
-/* span .close{
-  color: #7f8c8d;
-  font-size:30px;
-  font-weight:bold;
-  padding: 20px 0px 0px 270px;
-} */
-
-/* span .close:hover{
-  color: #f2f2f2;
-  text-decoration:none;
-  cursor: pointer;
-} */
-
 form{
   position:relative;
   background-color:#fefefe;
   margin:auto;
   width:40%;
   margin-top: 40px;
+  margin-left:60px;
+}
+
+.formdos{
+  position:relative;
+  background-color:#fefefe;
+  margin:auto;
+  width:90%;
+  margin-top: 30px;
+  margin-left:10px;
+  margin-bottom: 5px;
+}
+
+.formtres{
+  position:relative;
+  background-color:#fefefe;
+  margin:auto;
+  width:40%;
+  margin-top: 10px;
   margin-left:60px;
 }
 
@@ -135,14 +163,3 @@ h3{
   margin-left:60px;
 }
 
-.modaldos{
-  /* display:none; */
-  position:fixed;
-  z-index:1;
-  overflow:auto;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background: rgba(0, 0, 0, 0.452);
-}

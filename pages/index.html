@@ -43,37 +43,42 @@
     </div>
 
     <!--EDIT EMPLOYEE-->
-    <!-- <div>
-        <a href="#" class="close" id="closeEditEmployee">&times;</a>
-        <h3>Edit employee</h3>
-        <form>
-            <label for="editName">Name</label>
-            <input name="editName" id="editName">
-            <label for="editEmail">Email</label>
-            <input name="editEmail" id="editEmail">
-            <label for="editAddress">Address</label>
-            <textarea name="editAddress" id="editAddress"></textarea>
-            <label for="editPhone">Phone</label>
-            <input name="editPhone" id="editPhone">
-            <p>ID: <span id="editId"></span></p>
-        </form>
-        <div>
-            <a href="#" class="close" id="close">Cancel</a>
-            <a href="#" onclick="editEmployee()">Edit</a>
+    <div id="miModaltres" class="modaltres">
+        <div class="contenido-modal">
+            <div class="modal-body">
+                <h3>Edit employee</h3>
+                <form class="formtres">
+                    <label for="editName">Name</label>
+                    <input name="editName" id="editName">
+                    <label for="editEmail">Email</label>
+                    <input name="editEmail" id="editEmail">
+                    <label for="editAddress">Address</label>
+                    <textarea name="editAddress" id="editAddress"></textarea>
+                    <label for="editPhone">Phone</label>
+                    <input name="editPhone" id="editPhone">
+                    <p>ID: <span id="editId"></span></p>
+                </form>
+                <div>
+                    <a href="#" class="closetres" id="closetres"> Cancel</a>
+                    <a href="#" onclick="editEmployee()">Edit</a>
+                </div>
+            </div>
         </div>
-                </div> -->
+    </div>
 
     <!--DELETE-->
     <div id="miModaldos" class="modaldos">
         <div class="contenido-modal">
             <div class="modal-body">
-                <h3>Delete Employee</h3>
-                <p>Are you sure you want to delete these Records?</p>
-                <p>
-                    <small>This action cannot be undone.</small>
-                </p>
-                 <a href="#" class="closedos" id="closedos">Cancel</a>  <!-- HACERLO FUNCIONAR-->
-                <a href="#">Delete</a>  <!-- HACERLO FUNCIONAR-->
+                <div class="formdos">
+                    <h3>Delete Employee</h3>
+                    <p>Are you sure you want to delete these Records?</p>
+                    <p>
+                        <small>This action cannot be undone.</small>
+                    </p>
+                    <a href="#" class="closedos" id="closedos">Cancel</a> <!-- HACERLO FUNCIONAR-->
+                    <a href="#">Delete</a> <!-- HACERLO FUNCIONAR-->
+                </div>
             </div>
         </div>
     </div>
@@ -104,7 +109,9 @@
                         <td>1555554444</td>
                         <td>
                             <a href="#" class="edit"> <i class="material-icons" title="Edit">&#xE254;</i> </a>
-                            <a href="#" class="delete" id="abrirdos"> <i class="material-icons" title="Delete" id="abrirdos">&#xE872;</i> </a>
+                            <!-- HACERLO FUNCIONAR AL HACER CLICK-->
+                            <a href="#" class="delete" id="abrirdos"> <i class="material-icons" title="Delete"
+                                    id="abrirdos">&#xE872;</i> </a> <!-- HACERLO FUNCIONAR AL HACER CLICK -->
                         </td>
                     </tr>
                 </tbody>

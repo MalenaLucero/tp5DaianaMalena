@@ -4,14 +4,10 @@ const initialize = () =>{
         .then(res => res.json())
         .then(res => fillTable(res.employees))
 
-    // modal uno
+// modal uno
     let modal = document.getElementById('miModal');
     let abrir = document.getElementById('abrir');
     let cerrar = document.getElementById('close');
- // modal dos
-    let modaldos = document.getElementById('miModaldos');
-    let abrirdos = document.getElementById('abrirdos');
-    let cerrardos = document.getElementById('closedos');
 
     abrir.addEventListener('click',function(){
         modal.style.display = 'block';
@@ -19,14 +15,28 @@ const initialize = () =>{
     cerrar.addEventListener('click',function(){
         modal.style.display = 'none';
     });
-  
+// modal dos
+    let modaldos = document.getElementById('miModaldos');
+    let abrirdos = document.getElementById('abrirdos');
+    let cerrardos = document.getElementById('closedos');
+
     abrirdos.addEventListener('click',function(){
         modaldos.style.display = 'block';
     });
     cerrardos.addEventListener('click',function(){
         modaldos.style.display = 'none';
     });
+// modal tres
+    let modaltres = document.getElementById('miModaltres');
+    let abrirtres = document.getElementById('abrirtres');
+    let cerrartres = document.getElementById('closetres');
 
+    abrirtres.addEventListener('click',function(){
+        modaltres.style.display = 'block';
+    });
+    cerrartres.addEventListener('click',function(){
+        modaltres.style.display = 'none';
+    });
 
 }
 
