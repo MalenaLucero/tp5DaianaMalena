@@ -8,6 +8,10 @@ const initialize = () =>{
     let modal = document.getElementById('miModal');
     let abrir = document.getElementById('abrir');
     let cerrar = document.getElementById('close');
+ // modal dos
+    let modaldos = document.getElementById('miModaldos');
+    let abrirdos = document.getElementById('abrirdos');
+    let cerrardos = document.getElementById('closedos');
 
     abrir.addEventListener('click',function(){
         modal.style.display = 'block';
@@ -15,18 +19,13 @@ const initialize = () =>{
     cerrar.addEventListener('click',function(){
         modal.style.display = 'none';
     });
-   
-  // modal dos
-  let modaldelete = document.getElementById('miModaldelete');
-  let abrirdelete = document.getElementById('abrirdelete');
-  let cerrardelete = document.getElementById('closedelete');
-
-  abrirdelete.addEventListener('click',function(){
-      modaldelete.style.display = 'block';
-  });
-  cerrardelete.addEventListener('click',function(){
-      modaldelete.style.display = 'none';
-  });
+  
+    abrirdos.addEventListener('click',function(){
+        modaldos.style.display = 'block';
+    });
+    cerrardos.addEventListener('click',function(){
+        modaldos.style.display = 'none';
+    });
 
 
 }

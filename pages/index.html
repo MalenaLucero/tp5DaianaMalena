@@ -34,17 +34,16 @@
                     <input name="phone" id="phone">
                 </form>
                 <div>
-                    <a href="#">Cancel</a>
+                    <a href="#" class="close" id="close">Cancel</a>
                     <a href="#" onclick="sendInfo()">Accept</a>
                 </div>
             </div>
-            <span class="close" id="close">&times;</span>
         </div>
     </div>
     </div>
 
     <!--EDIT EMPLOYEE-->
-    <div>
+    <!-- <div>
         <a href="#" class="close" id="closeEditEmployee">&times;</a>
         <h3>Edit employee</h3>
         <form>
@@ -59,24 +58,24 @@
             <p>ID: <span id="editId"></span></p>
         </form>
         <div>
-            <a href="#">Cancel</a>
+            <a href="#" class="close" id="close">Cancel</a>
             <a href="#" onclick="editEmployee()">Edit</a>
         </div>
-                </div>
+                </div> -->
 
     <!--DELETE-->
-    <div id="miModaldelete" class="modal">
-            <div class="contenido-modal">
-                <div class="modal-body">
-        <h3>Delete Employee</h3>
-        <p>Are you sure you want to delete these Records?</p>
-        <p>
-            <small>This action cannot be undone.</small>
-        </p>
-        <a href="#">Cancel</a>
-        <a href="#" class="delete" title="Delete">Delete</a>
-    </div>
-    </div>
+    <div id="miModaldos" class="modaldos">
+        <div class="contenido-modal">
+            <div class="modal-body">
+                <h3>Delete Employee</h3>
+                <p>Are you sure you want to delete these Records?</p>
+                <p>
+                    <small>This action cannot be undone.</small>
+                </p>
+                 <a href="#" class="closedos" id="closedos">Cancel</a>  <!-- HACERLO FUNCIONAR-->
+                <a href="#">Delete</a>  <!-- HACERLO FUNCIONAR-->
+            </div>
+        </div>
     </div>
 
     <body>
@@ -97,14 +96,15 @@
                     </tr>
                 </thead>
                 <tbody id="employeeTable">
-                    <tr> 
+                    <tr>
+                        <!-- <td> CHECKBOX </td> -->
                         <td>Kurou Tetrsurou</td>
                         <td>ikemen@nekoma.com</td>
                         <td>Tokio street 1234</td>
                         <td>1555554444</td>
                         <td>
                             <a href="#" class="edit"> <i class="material-icons" title="Edit">&#xE254;</i> </a>
-                            <a href="#" class="delete" id="abrirdelete"> <i class="material-icons" title="Delete">&#xE872;</i> </a>
+                            <a href="#" class="delete" id="abrirdos"> <i class="material-icons" title="Delete" id="abrirdos">&#xE872;</i> </a>
                         </td>
                     </tr>
                 </tbody>
