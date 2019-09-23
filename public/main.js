@@ -156,7 +156,7 @@ const validateForm = (name, email, address, phone) =>{
 }
 
 const validateName = (name) =>{
-    if(name.length > 3 && name.length < 15 && name !== ''){
+    if(name.length > 3 && name.length < 25 && name !== ''){
         return true
     }else{
         return false
