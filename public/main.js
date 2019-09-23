@@ -222,4 +222,3 @@ const deleteEmployee = (id) =>{
         })
 }
 
-
