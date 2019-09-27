@@ -15,7 +15,6 @@ a:hover{
   color: #c7c7c7;
 }
 
-/* BOTON EMPLOYED */
    .addBoton{
     color: #ffffff;   
     float: right;
@@ -32,7 +31,6 @@ a:hover{
   margin-top: 25px;
 }
     
-/* BARRA EMPLOYED */
 h1{
   opacity: 0.8;
   background: #0a4957; 
@@ -73,12 +71,10 @@ table tr{
   font-size: 18px;
 }
 
-/* TABLA DATOS */
 table td{
   color: #0a4957;
   font-size: 15px;
   padding:15px;
-/* ARREGLAR ESTO */
 }
 
 .hide{
@@ -130,3 +126,9 @@ header{
   padding: 20px;
 }
 
+.botton{
+  color: #ffffff;
+  border: 1px solid #0a4957;
+  background-color: #0a4957;
+  margin-right: 4px;
+}
