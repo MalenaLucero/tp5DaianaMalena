@@ -1,13 +1,13 @@
 const uniqid = require('uniqid')
 
 const employees = [
-    {name: 'Daichi Sawamura', email: 'dsawamura@karasuno.com', address: 'Miyagi 1234', phone: 31181768, id: '1'},
-    {name: 'Kei Tsukishima', email: 'ktsukishima@karasuno.com', address: 'Spiker 1234', phone: 27161883, id: '2'},
-    {name: 'Tetsurou Kurou', email: 'tkurou@nekoma.com', address: 'Captain 1234', phone: 17181877, id: '3'},
-    {name: 'Touru Oikawa', email: 'toikawa@aobajosai.com', address: 'Captain 6789', phone: 20181843, id: '4'},
-    {name: 'Hajime Iwaizumi', email: 'hiwaizumi@aobajosai.com', address: 'Spiker 6778', phone: 10181793, id: '5'},
-    {name: 'Koutarou Bokuto', email: 'kbokuto@fukurodani.com', address: 'Wing 0987', phone: 20181853, id: '6'},
-    {name: 'Keiji Akaashi', email: 'kakaashi@fukurodani.com', address: 'Setter 9876', phone: 50171823, id: '7'},
+    {name: 'Daichi Sawamura', email: 'dsawamura@karasuno.com', address: 'Miyagi 1234', phone: 3118176845, id: '1'},
+    {name: 'Kei Tsukishima', email: 'ktsukishima@karasuno.com', address: 'Spiker 1234', phone: 2716188323, id: '2'},
+    {name: 'Tetsurou Kurou', email: 'tkurou@nekoma.com', address: 'Captain 1234', phone: 1718187767, id: '3'},
+    {name: 'Touru Oikawa', email: 'toikawa@aobajosai.com', address: 'Captain 6789', phone: 2018184345, id: '4'},
+    {name: 'Hajime Iwaizumi', email: 'hiwaizumi@aobajosai.com', address: 'Spiker 6778', phone: 1018179334, id: '5'},
+    {name: 'Koutarou Bokuto', email: 'kbokuto@fukurodani.com', address: 'Wing 0987', phone: 2018185345, id: '6'},
+    {name: 'Keiji Akaashi', email: 'kakaashi@fukurodani.com', address: 'Setter 9876', phone: 5017182367, id: '7'},
 ]
 
 const getEmployee = (req, res, next) =>{
